@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+  
+    <!-- <link href="toastr.css" rel="stylesheet"/>
+    <script src="toastr.js"></script> -->
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" referrerpolicy="no-referrer" /> -->
+    
+</head>
+<body>
+    <div class="left-50%">
+        <h1 class="decoration-red decoration-double border-solid border-2 border-sky-500">
+            Heading 1
+        </h1>
+        <h2 class="name"><Button class="button">Button</Button></h2>
+    </div>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="D:\Coding Ninjas course notes\Projects\Easily\public\resume-1720274462381-957471356.pdf" allowfullscreen></iframe>
+      </div>
+      
+</body>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" referrerpolicy="no-referrer"></script> -->
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+      
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+  
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+<script>
+    // Set the options that I want
+toastr.options = {
+  "closeButton": true,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-bottom-center",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
+    $(".button").click(function () {  
+        toastr["warning"](`Are you sure want to delete ?<br /><br /><button type="button" class="btn clear">No</button><button type="button" class="btn clear">Yes</button>`, "Logged In")
+    // 2000 is 2 seconds  
+    const buttons = document.querySelectorAll(".btn");
+    });
+    </script>
+</html>

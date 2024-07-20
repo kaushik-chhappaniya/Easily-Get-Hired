@@ -1,0 +1,112 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+<style>
+   .search-form {
+      display:flex !important;
+   }
+   #logout-button {
+      display: flex !important;
+   }
+   
+</style>
+<h3>Welcome <%= name %></h3>
+<span><% if(error){ %> <%= error %> <% }%> </span>
+<div style="display: flex; justify-content: center">
+   <a
+      class="btn btn-primary nav-link active"
+      aria-current="page"
+      style="margin: 10px; padding: 10px"
+      href="/recruiter/post-job">
+      Post a New Job
+   </a>
+</div>
+<% if(!error) { %>
+<div class="row row-cols-2">
+   <% jobs.forEach((job)=>{%>
+   <div class="col mb-3">
+      <div class="card">
+         <div class="job-details card-body">
+            <h5 class="card-title"><%= job.jobDesignation %></h5>
+            <p
+               
+               name="id"
+               class="card-text"
+               id="id">Job ID
+               <%= job.id %>
+            </p>
+            <p class="card-text">Job Category -> <%= job.jobCategory %></p>
+            <p class="card-text">Job Location -> <%= job.jobLocation %></p>
+            <p class="card-text">Company Name -> <%= job.companyName %></p>
+            <p class="card-text">Salary -> <%= job.salary %></p>
+            <p class="card-text">Apply By -> <%= job.applyBy %></p>
+            <p class="card-text">Skills Required -> <%= job.skillsRequired %></p>
+            <p class="card-text">Number of Openings -> <%= job.numberOfOpenings %></p>
+            <p class="card-text">Posted On -> <%= job.jobPosted %></p>
+            <div class="jobs-posted">
+               <a
+                  class="btn btn-primary nav-link active"
+                  aria-current="page"
+                  href="/recruiter/<%= job.id %>/update-job"
+                  >Update</a
+               >
+               <a
+                  class=" delete-button delete-job btn btn-primary nav-link active"
+                  aria-current="page"
+                  href="#"
+                  data-job-id="<%= job.id %>"
+                  >Delete</a
+               >
+               <a
+                  class="btn btn-primary nav-link active"
+                  aria-current="page"
+                  href="/recruiter/<%= job.id %>/applicants"
+                  >Applicants</a
+               >
+            </div>
+         </div>
+      </div>
+   </div>
+   <%})%>
+   
+</div>
+<%}%>
+<script>
+   $(document).ready(function() {
+  $('.delete-button').click(function(event) {
+    event.preventDefault(); // Prevent default form submission
+    const jobId = $(this).data('job-id'); // Get job ID from data attribute
+
+const confirmation = confirm('Are you sure you want to delete this job?');
+
+if (confirmation) {
+  // User confirmed deletion
+//   window.location.href = `/jobs/${jobId}/delete`; // Redirect to delete route
+           window.location.href = `/recruiter/${jobId}/delete-job`;
+            toastr["success"]( "Job Deleted Successfully :-)","Success");
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "2000",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+         //   toastr['success']('Job deleted successfully').;
+} else {
+  // User canceled deletion
+  toastr['success']('Job deletion cancelled.', 'Safe and Sound'); // Optional feedback
+}
+});
+});
+
+ </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>

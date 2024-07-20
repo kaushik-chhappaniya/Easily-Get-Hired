@@ -1,0 +1,95 @@
+<link
+   href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css"
+   rel="stylesheet" />
+<% if (error.length > 0) { %>
+<div
+   class="alert alert-danger"
+   role="alert">
+   <h4 class="alert-heading">Please fix the following errors:</h4>
+   <ul>
+      <li><%= error %></li>
+   </ul>
+</div>
+
+<div class="error">
+   <span class="login-button">
+      <h1>
+         <a href="#">Login Again</a>
+      </h1>
+   </span>
+   <span class="home-button">
+      <h1>
+         <a href="#">Homepage</a>
+      </h1>
+   </span>
+   <% } %>
+
+
+   <script>
+      $(document).ready(function () {
+         $(".login-button").click(function (event) {
+            const confirmation = confirm("You will be logged out...");
+            if (confirmation) {
+               window.location.href = `/login`;
+               toastr["success"]("Log Out Successful :-)", "Success");
+
+               toastr.options = {
+                  closeButton: false,
+                  debug: false,
+                  newestOnTop: false,
+                  progressBar: false,
+                  positionClass: "toast-top-right",
+                  preventDuplicates: false,
+                  onclick: null,
+                  showDuration: "2000",
+                  hideDuration: "1000",
+                  timeOut: "5000",
+                  extendedTimeOut: "1000",
+                  showEasing: "swing",
+                  hideEasing: "linear",
+                  showMethod: "fadeIn",
+                  hideMethod: "fadeOut",
+               };
+               //   toastr['success']('Job deleted successfully').;
+            } else {
+               // User canceled deletion
+               toastr["success"]("Not Logged Out.", "Safe and Sound"); // Optional feedback
+              //  window.location.href = "history.go(-1)";
+              history.go(-1);
+            }
+         });
+
+         $('.home-button').click(function(event) {
+            const confirmation = confirm("You will be logged out...");
+            if (confirmation) {
+               window.location.href = `/login`;
+               toastr["success"]("Log Out Successful :-)", "Success");
+
+               toastr.options = {
+                  closeButton: false,
+                  debug: false,
+                  newestOnTop: false,
+                  progressBar: false,
+                  positionClass: "toast-top-right",
+                  preventDuplicates: false,
+                  onclick: null,
+                  showDuration: "2000",
+                  hideDuration: "1000",
+                  timeOut: "5000",
+                  extendedTimeOut: "1000",
+                  showEasing: "swing",
+                  hideEasing: "linear",
+                  showMethod: "fadeIn",
+                  hideMethod: "fadeOut",
+               };
+               //   toastr['success']('Job deleted successfully').;
+            } else {
+               // User canceled deletion
+               toastr["success"]("Not Logged Out.", "Safe and Sound"); // Optional feedback
+               history.go(-1);
+            }
+         });
+      });
+   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+</div>

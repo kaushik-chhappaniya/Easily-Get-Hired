@@ -1,0 +1,49 @@
+<style>
+  #logout-button {
+      display: flex !important;
+   }
+   
+</style>
+<form method="POST" action="/recruiter/<%= job.id %>/update-job">
+    <div class="card my-5">
+      <div class="card-header">
+        Update Job 
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="jobCategory" class="form-label">Job Category</label>
+          <input type="text" class="form-control" id="jobCategory" name="jobCategory" value="<%= job.jobCategory %>">
+        </div>
+        <div class="mb-3">
+          <label for="jobDesignation" class="form-label">Job Designation</label>
+          <input type="text" class="form-control" id="jobDesignation" name="jobDesignation" value="<%= job.jobDesignation %>">
+        </div>
+        <div class="mb-3">
+          <label for="jobLocation" class="form-label">Job Location</label>
+          <input type="text" class="form-control" id="jobLocation" name="jobLocation" value="<%= job.jobLocation %>">
+        </div>
+        <div class="mb-3">
+          <label for="companyName" class="form-label">Company Name</label>
+          <input type="text" class="form-control" id="companyName" name="companyName" value="<%= job.companyName %>">
+        </div>
+        <div class="mb-3">
+          <label for="salary" class="form-label">Salary</label>
+          <input type="text" class="form-control" id="salary" name="salary" value="<%= job.salary %>">
+        </div>
+        <div class="mb-3">
+          <label for="applyBy" class="form-label">Apply By</label>
+          <input type="date" class="form-control" id="applyBy" name="applyBy" value="<%= job.applyBy %>">  </div>
+        <div class="mb-3">
+          <label for="skillsRequired" class="form-label">Skills Required</label>
+          <textarea class="form-control" id="skillsRequired" name="skillsRequired" rows="3"><%= job.skillsRequired %></textarea>  </div>
+        <div class="mb-3">
+          <label for="numberOfOpenings" class="form-label">Number of Openings</label>
+          <input type="number" class="form-control" id="numberOfOpenings" name="numberOfOpenings" value="<%= job.numberOfOpenings %>">  </div>
+        <div class="mb-3">
+          <label for="applicants" class="form-label">Applicants</label>
+          <input type="text" class="form-control" id="applicants" name="applicants" value="<%= job.applicants %>" disabled>  </div>
+        <button type="submit" class="btn btn-primary">Update Job</button>
+      </div>
+    </div>
+  </form>
+  

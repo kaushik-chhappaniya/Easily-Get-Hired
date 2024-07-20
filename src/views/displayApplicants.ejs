@@ -1,0 +1,67 @@
+<style>
+  .search-form {
+     display:flex !important;
+  }
+  #logout-button {
+      display: flex !important;
+   }
+   
+</style>
+<div class="container">
+    <h1>Job Applicants</h1>
+    <% if (applicants && applicants.length > 0) { %>
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>User Email</th>
+              <th>Name</th>
+              <th>Contact</th>
+              <th>PDF</th>
+            </tr>
+          </thead>
+        <% for (const applicant of applicants) { %>
+          <tr>
+            <td><%= applicant.email %></td>
+            <td><%= applicant.name %></td>
+            <td><%= applicant.contact %></td>
+            <td>
+              <a href="/recruiter/<%= applicant.id %>/view-pdf" class="btn btn-primary">View PDF</a>
+            </td>
+          </tr>
+   
+             
+        <% } %>
+      </tbody>
+    </table>
+    <% } else { %>
+      <p>No applicants found.</p>
+    <% } %>
+  </div>
+
+  <script>
+    <% for (const applicant of applicants) { %>
+      const pdfContainer = document.getElementById('pdf-container-<%= applicant._id %>');
+      const pdfURL = '<%= applicant.resumePath %>';
+
+      PDFJS.getDocument(pdfURL).promise.then((pdf) => {
+        pdf.getPage(1).then((page) => {
+          const scale = 1.5;
+          const viewport = page.getViewport({ scale });
+
+          const canvas = document.createElement('canvas');
+          const context = canvas.getContext('2d');
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          const renderContext = {
+            canvasContext: context,
+            viewport: viewport,
+          };
+
+          page.render(renderContext).promise.then(() => {
+            pdfContainer.appendChild(canvas);
+          });
+        });
+      });
+    <% } %>
+  </script>

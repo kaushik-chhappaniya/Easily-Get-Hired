@@ -1,0 +1,139 @@
+<style type="text/css">
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+      }
+        
+  header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* a:link {color:#FF0000;}  /* visited link */
+a:hover {color:#B4045F;}   /* mouse over link */
+a:active {color:#0000FF;}
+a {
+  text-decoration: none;
+}
+  
+  @keyframes title-animation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  main {
+    padding: 50px;
+  }
+
+  .nav-header {
+    font-size: 2em;
+    margin-left: 10px;
+    width: auto;
+    left: 8%; 
+position: relative;
+}
+.nav-header:hover {
+    animation: title-animation 2s ease-in-out infinite alternate;
+  /* border: 3px solid red; */
+  overflow-x: hidden;
+}
+
+.nav-search {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.available-jobs {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 8px;
+    text-align: center;
+}
+
+.job-details p {
+padding-left: 5px;
+margin-left: 10px;
+margin-bottom: 8px;
+border-bottom: 2px solid #bbc4f1;
+}
+
+.job-details h5 {
+    border-radius: 30px;
+    border-bottom: 2px red solid;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.job-details a {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Login Form */
+.login-form input {
+  border-radius: 25px;
+}
+
+/* Jobs Posted */
+.jobs-posted {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.jobs-posted a {
+  width: max-content;
+  margin: 5px 0;
+  padding: 5px;
+  color: navy;
+  font-weight: bolder;
+}
+.jobs-posted a:nth-child(1) {
+  background-color: #127af1bb;
+  box-shadow:  0 2px 5px rgb(119, 173, 255);
+    } 
+.jobs-posted a:nth-child(2) {
+    background-color: #B4045F;
+    box-shadow:  0 2px 5px rgb(230, 21, 21);
+}
+.jobs-posted a:nth-child(3) {
+    background-color: #48da24;
+    box-shadow:  0 2px 5px rgba(56, 228, 70, 0.959);
+}
+
+/* Error Page */
+.error {
+  display: flex;
+  justify-content: space-evenly;
+}
+.error span{
+  display:block;
+  margin-left: 50px;
+  padding-left:25px;
+  box-shadow:0 2px 5px rgba(202, 250, 206, 0.959);
+}
+
+.error a{
+  text-decoration: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+}
+</style>

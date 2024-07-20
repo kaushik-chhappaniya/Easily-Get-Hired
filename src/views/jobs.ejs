@@ -1,0 +1,49 @@
+<style>
+   .search-form {
+      display:flex !important;
+      position: relative;
+      right: 15%;
+   }
+</style>
+   <div class="available-jobs">
+      <span>
+         <h1>Available Jobs</h1>
+      </span>
+   </div>
+   <div class="container">
+   <div class="row row-cols-2">
+      <% jobs.forEach((job)=>{%>
+      <div class="col mb-3">
+         <div class="card">
+            <div class="job-details card-body">
+               <h5 class="card-title"><%= job.jobDesignation %></h5>
+               <p
+                  hidden
+                  name="id"
+                  class="card-text"
+                  id="id">
+                  <%= job.id %>
+               </p>
+                  <p class="card-text">Job Category -> <%= job.jobCategory %></p>
+                  <p class="card-text">Job Location -> <%= job.jobLocation %></p>
+                  <p class="card-text">Company Name -> <%= job.companyName %></p>
+                  <p class="card-text">Salary -> <%= job.salary %></p>
+                  <p class="card-text">Apply By -> <%= job.applyBy %></p>
+                  <p class="card-text">Skills Required -> <%= job.skillsRequired %></p>
+                  <p class="card-text">Number of Openings -> <%= job.numberOfOpenings %></p>
+                  <p class="card-text">Posted On -> <%= job.jobPosted %></p>
+                  <a
+                     class="btn btn-primary nav-link active"
+                     aria-current="page"
+                     href="/jobs/apply/<%= job.id %>"
+                     >Apply Now</a
+                  >
+                  <!-- <button  onclick="postJob" class="btn btn-primary mt-2">Apply </button> -->
+               </div>
+            </div>
+         </div>
+         <%})%>
+      </div>
+
+   </div>
+   

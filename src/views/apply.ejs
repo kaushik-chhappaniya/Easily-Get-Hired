@@ -1,0 +1,68 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+<style>
+  .search-form {
+     display:none !important;
+  }
+</style>
+<h2>Apply for a Job</h2>
+    <form action="/jobs/apply" method="POST"  enctype="multipart/form-data"> 
+      <div class="row mb-3">
+        <input  name="id" class="form-control" id="id" hidden value="<%= id %>"> 
+        <label for="name" class="col-sm-2 col-form-label">Full Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="contact" class="col-sm-2 col-form-label">Contact Number</label>
+        <div class="col-sm-10">
+          <input type="tel" class="form-control" id="contact" name="contact" required>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="email" class="col-sm-2 col-form-label">Email Address</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="image" class="col-sm-2 col-form-label">Upload Resume</label>
+        <div class="col-sm-10">
+          <input
+          type="file"
+          class="form-control"
+          name="resume"
+          placeholder="enter image link"
+        />
+          <!-- <input type="file" class="form-control" id="resume" name="resume"  required>
+          <small class="form-text text-muted">Only PDF files are accepted.</small> -->
+        </div>
+      </div>
+      <button type="submit" class="submit-btn btn btn-primary">Submit Application</button>
+    </form>
+    <script>
+      $(document).ready(function() {
+$('.submit-btn').click(function() {
+       toastr["success"]( "Job Application Successful :-)","Success");
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "2000",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+});
+});
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
